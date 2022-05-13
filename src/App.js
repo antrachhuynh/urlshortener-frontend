@@ -17,9 +17,17 @@ import {
 import Nav from './Nav';
 import Testimonial from './Testimonial';
 import Footer from './Footer';
-import Shorten from './Shorten'
 
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Outlet
+} from "react-router-dom";
+
+import IndexPage from "./routes/IndexPage";
+import Extensions from "./routes/Extensions";
 
 
 function App() {
@@ -48,7 +56,14 @@ function App() {
               <Text>Input your looooong URL and let we do the rest ✌️</Text>
               <Flex>
 
-                <Shorten />
+                
+                <BrowserRouter>
+                  <Routes>
+                    <Route path="extensions" element={<Extensions />} />
+                    <Route path="/" element={<IndexPage />} />
+                  </Routes>
+                </BrowserRouter>
+                <Outlet />
 
               </Flex>
 
