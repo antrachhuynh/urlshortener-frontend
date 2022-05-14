@@ -9,15 +9,15 @@ import {
     InputLeftElement,
     Heading,
     Flex,
-    Text
-
-
-
+    Text,
+    Center,
+    Tooltip,
 
 
 } from '@chakra-ui/react';
 
 
+import QRCode from "react-qr-code";
 
 
 import { ArrowForwardIcon, LinkIcon } from '@chakra-ui/icons';
@@ -138,22 +138,32 @@ class Shorten extends React.Component {
 
                                     )}
                                 </Field>
+                                <Tooltip label='Click here to shorten'>
+                                    <Button
+                                        mt={2}
+                                        rightIcon={<ArrowForwardIcon />}
+                                        colorScheme='teal'
+                                        variant='outline'
+                                        color='#FF0080'
+                                        isLoading={props.isSubmitting}
+                                        type='submit'
+                                    >
+                                        Shorten
+                                    </Button>
+                                </Tooltip>
+                                <Tooltip label='Scan me!'>
+                                    <Center mt={3}>
 
-                                <Button
-                                    mt={2}
-                                    rightIcon={<ArrowForwardIcon />}
-                                    colorScheme='teal'
-                                    variant='outline'
-                                    color='#FF0080'
-                                    isLoading={props.isSubmitting}
-                                    type='submit'
-                                >
-                                    Shorten
-                                </Button>
+                                        {this.state.shortUrl !== '' ? <QRCode size="80" value={this.state.shortUrl} /> : null}
+
+                                    </Center>
+                                </Tooltip>
+                                {this.state.shortUrl !== '' ? <Text mt={3} color='green' fontSize="sm">Successfully shorten!</Text> : null}
                             </Form>
                         )
                         }
                     </Formik>
+
                 </Flex>
             </>
         )

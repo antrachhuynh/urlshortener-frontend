@@ -26,14 +26,14 @@ export default function Extensions() {
                 fontSize='4xl'
                 fontWeight='extrabold'
             >
-                Contact
+                Contact us
             </Heading>
-            <Text>Keep in touch with us ✌️</Text>
+            <Text>Keep in touch with us ❤️</Text>
 
             <Flex>
                 <Stack spacing={4}>
 
-                    <FormControl mt={10}>
+                    <FormControl mt={6}>
                         <FormLabel htmlFor='email'>Email address</FormLabel>
                         <Input placeholder='Enter your email' id='email' type='email' />
                         <FormHelperText>We'll never share your email.</FormHelperText>
