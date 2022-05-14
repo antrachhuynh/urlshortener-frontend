@@ -17,7 +17,7 @@ import {
 import Nav from './Nav';
 import Testimonial from './Testimonial';
 import Footer from './Footer';
-
+import Stats from './Stats';
 
 import {
   BrowserRouter,
@@ -56,7 +56,7 @@ function App() {
               <Text>Input your looooong URL and let we do the rest ✌️</Text>
               <Flex>
 
-                
+
                 <BrowserRouter>
                   <Routes>
                     <Route path="extensions" element={<Extensions />} />
@@ -73,7 +73,9 @@ function App() {
           </Grid>
         </Box>
       </Container>
+      <Stats />
       <Testimonial />
+
       <Footer />
 
     </ChakraProvider>

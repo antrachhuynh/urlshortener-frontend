@@ -91,10 +91,10 @@ export default function WithSpeechBubbles() {
       <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
         <Stack spacing={0} align={'center'}>
           <Heading
-       
-          fontSize='4xl'
-          fontWeight='extrabold'
-          
+
+            fontSize='4xl'
+            fontWeight='extrabold'
+
           >Our Clients Speak</Heading>
           <Text>We have been working with clients around the world</Text>
         </Stack>

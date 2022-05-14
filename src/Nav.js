@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import {
   Box,
   Flex,
@@ -10,7 +9,6 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  useDisclosure,
   useColorModeValue,
   Stack,
   useColorMode,
@@ -27,17 +25,17 @@ export default function Nav() {
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box m={3}>
-          <Stack direction={'row'} spacing={6}>
-            <Link href={'/'}><LinkIcon /> Home</Link>
-            <Link href={'extensions'}><DownloadIcon /> Extension</Link>
-          </Stack>
+            <Stack direction={'row'} spacing={6}>
+              <Link href={'/'}><LinkIcon /> Home</Link>
+              <Link href={'extensions'}><DownloadIcon /> Extension</Link>
+            </Stack>
 
           </Box>
-          
+
           <Flex alignItems={'center'}>
-            
+
             <Stack direction={'row'} spacing={7}>
-             
+
               <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>

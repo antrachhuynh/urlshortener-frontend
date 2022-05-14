@@ -10,8 +10,8 @@ ReactDOM.render(
   <StrictMode>
     <ColorModeScript />
     <ChakraProvider>
-      
-    <App />
+
+      <App />
     </ChakraProvider>
   </StrictMode>,
   document.getElementById('root')

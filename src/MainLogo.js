@@ -47,7 +47,7 @@ export default function AvatarWithRipple() {
           animation: `2.25s ${pulseRing} cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite`,
         }}>
         <Avatar
-          bg="none"  
+          bg="none"
           src={mainlogo}
           size="full"
           position="absolute"

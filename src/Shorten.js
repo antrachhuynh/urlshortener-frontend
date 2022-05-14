@@ -1,12 +1,12 @@
 import React from 'react';
 import {
- 
+
     Input,
     Button,
     FormControl,
     FormErrorMessage
-    
-  
+
+
 
 
 } from '@chakra-ui/react';
@@ -34,9 +34,9 @@ class Shorten extends React.Component {
 
 
     validateName(value) {
-        const regex = new RegExp('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?');    
-        
-        
+        const regex = new RegExp('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?');
+
+
         let error;
         if (!value) {
             error = 'URL is required'
@@ -46,11 +46,11 @@ class Shorten extends React.Component {
 
         return error
     }
-    
-    
 
-    async shortenUrl (longURL) {
-        
+
+
+    async shortenUrl(longURL) {
+
         // POST request using fetch with async/await
         const requestOptions = {
             method: 'POST',
@@ -67,27 +67,27 @@ class Shorten extends React.Component {
 
     }
 
-    
+
 
     render() {
         const handleClick = (e) => {
             e.target.select();
-          };
+        };
         return (
-        
 
 
 
-            
+
+
             <Formik
-           
+
                 enableReinitialize={true}
-                initialValues={{ longUrl: this.state.shortUrl}}
+                initialValues={{ longUrl: this.state.shortUrl }}
                 onSubmit={(values, actions) => {
                     setTimeout(() => {
                         this.shortenUrl(JSON.stringify(values, null, 2))
                         actions.setSubmitting(false)
-                        
+
                     }, 1000)
 
                 }}
@@ -99,7 +99,7 @@ class Shorten extends React.Component {
                                 <FormControl isInvalid={form.errors.longUrl && form.touched.longUrl}>
                                     <Input onClick={handleClick} width="100%" size='lg' {...field} id='longUrl' placeholder='Input your URL' />
                                     <FormErrorMessage>{form.errors.longUrl} </FormErrorMessage>
-                                    
+
                                 </FormControl>
                             )}
                         </Field>
