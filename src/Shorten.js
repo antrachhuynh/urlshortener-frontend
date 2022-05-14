@@ -4,14 +4,20 @@ import {
     Input,
     Button,
     FormControl,
-    FormErrorMessage
+    FormErrorMessage,
+    InputGroup,
+    InputLeftElement,
+    Flex
 
 
 
 
 } from '@chakra-ui/react';
 
-import { ArrowForwardIcon } from '@chakra-ui/icons';
+
+
+
+import { ArrowForwardIcon, LinkIcon } from '@chakra-ui/icons';
 import {
     Formik,
     Field,
@@ -92,11 +98,30 @@ class Shorten extends React.Component {
                     <Form>
                         <Field name='longUrl' validate={this.validateName}>
                             {({ field, form }) => (
+
+
                                 <FormControl isInvalid={form.errors.longUrl && form.touched.longUrl}>
-                                    <Input onClick={handleClick} width="100%" size='lg' {...field} id='longUrl' placeholder='Input your URL' />
+                                    <InputGroup>
+
+                                        <InputLeftElement
+                                            pointerEvents='none'
+                                            top='3px'
+                                            children={<LinkIcon color='gray.300' />}
+                                        />
+                                        <Input
+                                            onClick={handleClick}
+                                            width="100%"
+                                            size='lg' {...field}
+                                            id='longUrl'
+                                            placeholder='Input your URL'
+
+                                        />
+                                    </InputGroup>
+
                                     <FormErrorMessage>{form.errors.longUrl} </FormErrorMessage>
 
                                 </FormControl>
+
                             )}
                         </Field>
 
@@ -112,7 +137,8 @@ class Shorten extends React.Component {
                             Shorten
                         </Button>
                     </Form>
-                )}
+                )
+                }
             </Formik>
         )
     }
