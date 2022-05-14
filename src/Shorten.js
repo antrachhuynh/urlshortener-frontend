@@ -138,19 +138,17 @@ class Shorten extends React.Component {
 
                                     )}
                                 </Field>
-                                <Tooltip label='Click here to shorten'>
-                                    <Button
-                                        mt={2}
-                                        rightIcon={<ArrowForwardIcon />}
-                                        colorScheme='teal'
-                                        variant='outline'
-                                        color='#FF0080'
-                                        isLoading={props.isSubmitting}
-                                        type='submit'
-                                    >
-                                        Shorten
-                                    </Button>
-                                </Tooltip>
+                                <Button
+                                    mt={2}
+                                    rightIcon={<ArrowForwardIcon />}
+                                    colorScheme='teal'
+                                    variant='outline'
+                                    color='#FF0080'
+                                    isLoading={props.isSubmitting}
+                                    type='submit'
+                                >
+                                    Shorten
+                                </Button>
                                 <Tooltip label='Scan me!'>
                                     <Center mt={3}>
 
