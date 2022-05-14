@@ -1,7 +1,10 @@
 
 import {
     Button,
-    Stack
+    Stack,
+    Heading,
+    Text,
+    Flex
 
 } from '@chakra-ui/react';
 import { DownloadIcon } from '@chakra-ui/icons'
@@ -16,19 +19,30 @@ function openFirefox() {
 export default function Extensions() {
 
     return (
-        <Stack spacing={4}>
+        <>
+            <Heading
+                bgGradient='linear(to-l, #7928CA, #FF0080)'
+                bgClip='text'
+                fontSize='4xl'
+                fontWeight='extrabold'
+            >
+                Install the browser extensions
+            </Heading>
+            <Text>Let's install our extensions and get a better experience 💎</Text>
+            <Flex></Flex>
+            <Stack spacing={4}>
 
 
-            <Button onClick={openStore} leftIcon={<DownloadIcon />} colorScheme='orange' variant='solid'>
-                Chrome Extension
-            </Button>
+                <Button onClick={openStore} leftIcon={<DownloadIcon />} colorScheme='orange' variant='solid'>
+                    Chrome Extension
+                </Button>
 
-            <Button onClick={openFirefox} leftIcon={<DownloadIcon />} colorScheme='pink' variant='solid'>
-                Firefox Extension
-            </Button>
+                <Button onClick={openFirefox} leftIcon={<DownloadIcon />} colorScheme='pink' variant='solid'>
+                    Firefox Extension
+                </Button>
 
-        </Stack>
-
+            </Stack>
+        </>
 
 
     );

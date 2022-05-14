@@ -2,13 +2,10 @@ import React from 'react';
 import {
   ChakraProvider,
   Box,
-  Heading,
   VStack,
   Grid,
   theme,
-  Flex,
   Container,
-  Text
 
 
 } from '@chakra-ui/react';
@@ -19,6 +16,7 @@ import Testimonial from './Testimonial';
 import Footer from './Footer';
 import Stats from './Stats';
 
+
 import {
   BrowserRouter,
   Routes,
@@ -28,7 +26,8 @@ import {
 
 import IndexPage from "./routes/IndexPage";
 import Extensions from "./routes/Extensions";
-
+import About from './routes/About';
+import Contact from './routes/Contact';
 
 function App() {
 
@@ -45,27 +44,19 @@ function App() {
           <Grid p={12}   >
             <VStack spacing={1}>
 
-              <Heading
-                bgGradient='linear(to-l, #7928CA, #FF0080)'
-                bgClip='text'
-                fontSize='4xl'
-                fontWeight='extrabold'
-              >
-                Fast URL Shortener
-              </Heading>
-              <Text>Input your looooong URL and let we do the rest ✌️</Text>
-              <Flex>
 
 
-                <BrowserRouter>
-                  <Routes>
-                    <Route path="extensions" element={<Extensions />} />
-                    <Route path="/" element={<IndexPage />} />
-                  </Routes>
-                </BrowserRouter>
-                <Outlet />
+              <BrowserRouter>
+                <Routes>
+                  <Route path="extensions" element={<Extensions />} />
+                  <Route path="/" element={<IndexPage />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                </Routes>
+              </BrowserRouter>
+              <Outlet />
 
-              </Flex>
+
 
 
 

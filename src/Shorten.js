@@ -7,7 +7,10 @@ import {
     FormErrorMessage,
     InputGroup,
     InputLeftElement,
-    Flex
+    Heading,
+    Flex,
+    Text
+
 
 
 
@@ -84,62 +87,75 @@ class Shorten extends React.Component {
             e.target.select();
         };
         return (
+            <>
+                <Heading
+                    bgGradient='linear(to-l, #7928CA, #FF0080)'
+                    bgClip='text'
+                    fontSize='4xl'
+                    fontWeight='extrabold'
+                >
+                    Fast URL Shortener
+                </Heading>
+                <Text>Input your looooong URL and let we do the rest ✌️</Text>
+                <Flex>
 
-            <Formik
+                    <Formik
 
-                enableReinitialize={true}
-                initialValues={{ longUrl: this.state.shortUrl }}
-                onSubmit={(values, actions) => {
-                    this.shortenUrl(JSON.stringify(values, null, 2), actions)
+                        enableReinitialize={true}
+                        initialValues={{ longUrl: this.state.shortUrl }}
+                        onSubmit={(values, actions) => {
+                            this.shortenUrl(JSON.stringify(values, null, 2), actions)
 
-                }}
-            >
-                {(props) => (
-                    <Form>
-                        <Field name='longUrl' validate={this.validateName}>
-                            {({ field, form }) => (
+                        }}
+                    >
+                        {(props) => (
+                            <Form>
+                                <Field name='longUrl' validate={this.validateName}>
+                                    {({ field, form }) => (
 
 
-                                <FormControl isInvalid={form.errors.longUrl && form.touched.longUrl}>
-                                    <InputGroup>
+                                        <FormControl isInvalid={form.errors.longUrl && form.touched.longUrl}>
+                                            <InputGroup>
 
-                                        <InputLeftElement
-                                            pointerEvents='none'
-                                            top='3px'
-                                            children={<LinkIcon color='gray.300' />}
-                                        />
-                                        <Input
-                                            onClick={handleClick}
-                                            width="100%"
-                                            size='lg' {...field}
-                                            id='longUrl'
-                                            placeholder='Input your URL'
+                                                <InputLeftElement
+                                                    pointerEvents='none'
+                                                    top='3px'
+                                                    children={<LinkIcon color='gray.300' />}
+                                                />
+                                                <Input
+                                                    onClick={handleClick}
+                                                    width="100%"
+                                                    size='lg' {...field}
+                                                    id='longUrl'
+                                                    placeholder='Input your URL'
 
-                                        />
-                                    </InputGroup>
+                                                />
+                                            </InputGroup>
 
-                                    <FormErrorMessage>{form.errors.longUrl} </FormErrorMessage>
+                                            <FormErrorMessage>{form.errors.longUrl} </FormErrorMessage>
 
-                                </FormControl>
+                                        </FormControl>
 
-                            )}
-                        </Field>
+                                    )}
+                                </Field>
 
-                        <Button
-                            mt={2}
-                            rightIcon={<ArrowForwardIcon />}
-                            colorScheme='teal'
-                            variant='outline'
-                            color='#FF0080'
-                            isLoading={props.isSubmitting}
-                            type='submit'
-                        >
-                            Shorten
-                        </Button>
-                    </Form>
-                )
-                }
-            </Formik>
+                                <Button
+                                    mt={2}
+                                    rightIcon={<ArrowForwardIcon />}
+                                    colorScheme='teal'
+                                    variant='outline'
+                                    color='#FF0080'
+                                    isLoading={props.isSubmitting}
+                                    type='submit'
+                                >
+                                    Shorten
+                                </Button>
+                            </Form>
+                        )
+                        }
+                    </Formik>
+                </Flex>
+            </>
         )
     }
 }
