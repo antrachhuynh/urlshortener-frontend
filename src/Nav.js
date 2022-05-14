@@ -14,7 +14,7 @@ import {
   useColorMode,
   Center,
 } from '@chakra-ui/react';
-import { MoonIcon, SunIcon, LinkIcon, DownloadIcon } from '@chakra-ui/icons';
+import { MoonIcon, SunIcon, AtSignIcon, DownloadIcon } from '@chakra-ui/icons';
 
 
 
@@ -26,7 +26,7 @@ export default function Nav() {
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box m={3}>
             <Stack direction={'row'} spacing={6}>
-              <Link href={'/'}><LinkIcon /> Home</Link>
+              <Link href={'/'}><AtSignIcon /> Home</Link>
               <Link href={'extensions'}><DownloadIcon /> Extension</Link>
             </Stack>
 

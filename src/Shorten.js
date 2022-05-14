@@ -49,7 +49,7 @@ class Shorten extends React.Component {
 
 
 
-    async shortenUrl(longURL) {
+    async shortenUrl(longURL, actions) {
 
         // POST request using fetch with async/await
         const requestOptions = {
@@ -60,9 +60,13 @@ class Shorten extends React.Component {
         const response = await fetch('https://zmb.ee/api/url/short', requestOptions);
         const data = await response.json();
         const result = data.shortUrl;
-
+        if (data) {
+            actions.setSubmitting(false)
+        }
         this.setState({ shortUrl: result, msg: "Success" });
-        console.log(result);
+        //console.log(result);
+
+
 
 
     }
@@ -75,20 +79,12 @@ class Shorten extends React.Component {
         };
         return (
 
-
-
-
-
             <Formik
 
                 enableReinitialize={true}
                 initialValues={{ longUrl: this.state.shortUrl }}
                 onSubmit={(values, actions) => {
-                    setTimeout(() => {
-                        this.shortenUrl(JSON.stringify(values, null, 2))
-                        actions.setSubmitting(false)
-
-                    }, 1000)
+                    this.shortenUrl(JSON.stringify(values, null, 2), actions)
 
                 }}
             >
