@@ -12,6 +12,7 @@ import {
     Text,
     Center,
     Tooltip,
+    ScaleFade
 
 
 } from '@chakra-ui/react';
@@ -76,8 +77,6 @@ class Shorten extends React.Component {
         //console.log(result);
 
 
-
-
     }
 
 
@@ -86,6 +85,8 @@ class Shorten extends React.Component {
         const handleClick = (e) => {
             e.target.select();
         };
+
+
         return (
             <>
                 <Heading
@@ -149,10 +150,11 @@ class Shorten extends React.Component {
                                 >
                                     Shorten
                                 </Button>
-                                <Tooltip label='Scan me!'>
+                                <Tooltip label='Scan me!' >
+
                                     <Center mt={3}>
 
-                                        {this.state.shortUrl !== '' ? <QRCode size="80" value={this.state.shortUrl} /> : null}
+                                        {this.state.shortUrl !== '' ? <ScaleFade initialScale={0.9} in={true}><QRCode size="80" value={this.state.shortUrl} /></ScaleFade> : null}
 
                                     </Center>
                                 </Tooltip>
