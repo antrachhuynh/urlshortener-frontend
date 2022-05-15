@@ -36,7 +36,8 @@ class Shorten extends React.Component {
 
         this.state = {
             shortUrl: '',
-            msg: ''
+            msg: '',
+            isDone: false
         };
     }
 
@@ -45,13 +46,17 @@ class Shorten extends React.Component {
 
     validateName(value) {
         const regex = new RegExp('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?');
-
+        let domainName = 'zmb.ee';
 
         let error;
         if (!value) {
-            error = 'URL is required'
-        } else if (!regex.test(value)) {
-            error = "It's not an valid URL 😱"
+            error = 'URL is required ⛔'
+        }
+        else if (value.includes("https://" + domainName) || value.includes("http://" + domainName)) {
+            error = "That's already a short URL ❌"
+        }
+        else if (!regex.test(value)) {
+            error = "That's not a valid URL 😱"
         }
 
         return error
@@ -60,6 +65,8 @@ class Shorten extends React.Component {
 
 
     async shortenUrl(longURL, actions) {
+        //clear last qr code
+        this.setState({ isDone: false });
 
         // POST request using fetch with async/await
         const requestOptions = {
@@ -71,9 +78,11 @@ class Shorten extends React.Component {
         const data = await response.json();
         const result = data.shortUrl;
         if (data) {
-            actions.setSubmitting(false)
+            actions.setSubmitting(false);
+
+
         }
-        this.setState({ shortUrl: result, msg: "Success" });
+        this.setState({ shortUrl: result, msg: "Success", isDone: true });
         //console.log(result);
 
 
@@ -150,15 +159,15 @@ class Shorten extends React.Component {
                                 >
                                     Shorten
                                 </Button>
-                                <Tooltip label='Scan me!' >
 
-                                    <Center mt={3}>
 
-                                        {this.state.shortUrl !== '' ? <ScaleFade initialScale={0.9} in={true}><QRCode size="80" value={this.state.shortUrl} /></ScaleFade> : null}
 
-                                    </Center>
-                                </Tooltip>
-                                {this.state.shortUrl !== '' ? <Text mt={3} color='green' fontSize="sm">Successfully shorten!</Text> : null}
+
+                                {this.state.isDone !== false ? <><ScaleFade id='qrcode' initialScale={0.9} in={true}><Tooltip label='Scan me!' ><Center mt={3}><QRCode size="80" value={this.state.shortUrl} /></Center></Tooltip><Text mt={3} color='green' fontSize="sm">Successfully shorten ✅</Text></ScaleFade></> : null}
+
+
+
+
                             </Form>
                         )
                         }
