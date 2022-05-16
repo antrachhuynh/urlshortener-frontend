@@ -12,14 +12,15 @@ import {
     Text,
     Center,
     Tooltip,
-    ScaleFade
+    ScaleFade,
+
 
 
 } from '@chakra-ui/react';
 
 
 import QRCode from "react-qr-code";
-
+import Clipboard from "./Clipboard";
 
 import { ArrowForwardIcon, LinkIcon } from '@chakra-ui/icons';
 import {
@@ -29,7 +30,12 @@ import {
 
 } from 'formik';
 
+
+
+
+
 class Shorten extends React.Component {
+
 
     constructor(props) {
         super(props);
@@ -74,6 +80,7 @@ class Shorten extends React.Component {
             headers: { 'Content-Type': 'application/json' },
             body: longURL
         };
+
         const response = await fetch('https://zmb.ee/api/url/short', requestOptions);
         const data = await response.json();
         const result = data.shortUrl;
@@ -94,6 +101,7 @@ class Shorten extends React.Component {
         const handleClick = (e) => {
             e.target.select();
         };
+
 
 
         return (
@@ -125,23 +133,26 @@ class Shorten extends React.Component {
 
 
                                         <FormControl isInvalid={form.errors.longUrl && form.touched.longUrl}>
-                                            <InputGroup>
+                                            <Flex mb={2}>
+                                                <InputGroup>
 
-                                                <InputLeftElement
-                                                    pointerEvents='none'
-                                                    top='3px'
-                                                    children={<LinkIcon color='gray.300' />}
-                                                />
-                                                <Input
-                                                    onClick={handleClick}
-                                                    width="100%"
-                                                    size='lg' {...field}
-                                                    id='longUrl'
-                                                    placeholder='Input your URL'
+                                                    <InputLeftElement
+                                                        pointerEvents='none'
+                                                        top='3px'
+                                                        children={<LinkIcon color='gray.300' />}
+                                                    />
+                                                    <Input
+                                                        onClick={handleClick}
+                                                        width="100%"
+                                                        size='lg' {...field}
+                                                        id='longUrl'
+                                                        placeholder='Input your URL'
 
-                                                />
-                                            </InputGroup>
+                                                    />
 
+                                                </InputGroup>
+                                                <Clipboard value={(this.state.shortUrl !== "") ? this.state.shortUrl : null} />
+                                            </Flex>
                                             <FormErrorMessage>{form.errors.longUrl} </FormErrorMessage>
 
                                         </FormControl>
