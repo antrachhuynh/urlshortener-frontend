@@ -112,7 +112,7 @@ class Shorten extends React.Component {
                     fontSize='4xl'
                     fontWeight='extrabold'
                 >
-                    Fast URL Shortener
+                    Fast URL Shortener ⚡️
                 </Heading>
                 <Text>Input your looooong URL and let we do the rest ✌️</Text>
                 <Flex>

@@ -28,6 +28,8 @@ import IndexPage from "./routes/IndexPage";
 import Extensions from "./routes/Extensions";
 import About from './routes/About';
 import Contact from './routes/Contact';
+import Register from './routes/Register';
+import Login from './routes/Login';
 
 function App() {
 
@@ -52,6 +54,8 @@ function App() {
                   <Route path="/" element={<IndexPage />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/login" element={<Login />} />
                 </Routes>
               </BrowserRouter>
               <Outlet />

@@ -8,11 +8,9 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuDivider,
   useColorModeValue,
   Stack,
   useColorMode,
-  Center,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon, AtSignIcon, DownloadIcon } from '@chakra-ui/icons';
 
@@ -53,22 +51,9 @@ export default function Nav() {
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
-                  <br />
-                  <Center>
-                    <Avatar
-                      size={'2xl'}
-                      src={'https://avatars.dicebear.com/api/male/username.svg'}
-                    />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
+
+                  <a href="/login"><MenuItem>Login</MenuItem></a>
+                  <a href="/register"><MenuItem>Register</MenuItem></a>
                 </MenuList>
               </Menu>
             </Stack>
