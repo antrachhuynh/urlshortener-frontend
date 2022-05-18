@@ -30,6 +30,7 @@ import About from './routes/About';
 import Contact from './routes/Contact';
 import Register from './routes/Register';
 import Login from './routes/Login';
+import Api from './routes/Api';
 
 function App() {
 
@@ -56,6 +57,7 @@ function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/api" element={<Api />} />
                 </Routes>
               </BrowserRouter>
               <Outlet />
